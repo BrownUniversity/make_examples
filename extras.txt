@@ -1,0 +1,12 @@
+# Automatic help creation
+#help:  @ List available tasks on this project
+help:
+	@grep -E '[a-zA-Z\.\-]+:.*?@ .*$$' $(MAKEFILE_LIST)| tr -d '#'  | awk 'BEGIN {FS = ":.*?@ "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+# IF statements
+check:
+ifdef VAR
+	echo "this"
+else
+	echo "that"
+endif
