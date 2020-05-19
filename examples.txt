@@ -1,0 +1,11 @@
+error1:
+	test -f NOT_TRUE; return 0
+	echo "you will see me"
+
+error2:
+	test -f NOT_TRUE
+	echo "you will not see me
+
+error3: 
+	echo "error" ; return 99
+	echo "you will never see me"
